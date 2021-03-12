@@ -1,8 +1,11 @@
-import {Link} from 'react-router-dom'
+
 
 const form = (props) => {
     return (
-    <form onSubmit={props.formSubmit}>
+    <form onSubmit={e => {
+        e.preventDefault()
+        props.submitHandler(props.myCity)
+        }}>
         <select defaultValue="" onChange={props.chooseCity}>
             <option value="">--choose city--</option>
             <optgroup label="北部">
@@ -38,7 +41,7 @@ const form = (props) => {
               <option value="LienchiangCounty">連江縣</option>
             </optgroup>
         </select>
-        <button><Link to={'/ScenicSpot/' + props.myCity} style={{ textDecoration: 'none', color: 'white', fontWeight: 'bold' }} >Submit Search</Link></button>
+        <button>Submit Search</button>
     </form>
     )
 }

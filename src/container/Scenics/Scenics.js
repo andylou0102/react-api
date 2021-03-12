@@ -1,16 +1,13 @@
 import {useState, useRef, useCallback} from 'react'
 import Scenic from '../../components/Scenic/Scenic'
-import CityScenics from '../CityScenics/CityScenics'
-import {Route} from 'react-router-dom'
 import fetchAll from '../../functions/fetchAll'
 
-const Scenics = (props) => {
+const Scenics = () => {
 
     const [skip, setSkip] = useState(0)
 
     const {data, hasMore, loading} = fetchAll(skip)
   
-    console.log(props.match)
 
     const observer = useRef()
     const lastElementRef = useCallback(node => {
@@ -47,8 +44,8 @@ const Scenics = (props) => {
     <>
       <section>
         {posts}
+        <div style={{font: '24px bold', textAlign: 'center'}}>{ loading && 'Loading...'}</div>
       </section>
-      <Route path={props.match.url + '/:city'} exact component={CityScenics}/>
     </>
     )
 }

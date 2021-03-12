@@ -13,7 +13,6 @@ const Cityscenics = (props) => {
     useEffect(() => {
         console.log(props.match.params.city)
         
-        // console.log(typeof(data.0.City))
         axios({
             method:'GET',
             url: `https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot/${props.match.params.city}`,
@@ -71,6 +70,7 @@ const Cityscenics = (props) => {
     return (
       <section>
         {posts}
+        <div style={{font: '24px bold', textAlign: 'center'}}>{ loading && 'Loading...'}</div>
       </section>
     )
 }
