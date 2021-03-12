@@ -12,7 +12,7 @@ function App() {
       <Switch>
         <Route path={'/ScenicSpot/:city'} exact component={CityScenics}/>
         <Route path='/ScenicSpot' component={Scenics}/>
-        <Route render={() => <h1>404 Not found</h1>} />
+        {/* <Route render={() => <h1>404 Not found</h1>} /> */}
       </Switch>
     </>
   );
