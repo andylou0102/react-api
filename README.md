@@ -1,3 +1,18 @@
+
+## 本地端啟動 :
+ First you have to download this file, then you can execute this with following instructions :
+```
+Run "npm install"
+```
+```
+Run "npm start"
+```
+
+## 或直接前往連結測試 :
+[React API(Hosting on firebase)](https://my-first-app-85353.web.app/)
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
