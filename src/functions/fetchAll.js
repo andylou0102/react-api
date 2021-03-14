@@ -8,6 +8,7 @@ export default function FetchAll(skip) {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
+        console.log(skip);
         axios({
             method:'GET',
             url: 'https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot',

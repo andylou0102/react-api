@@ -11,32 +11,32 @@ const Cityscenics = (props) => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        console.log(props.match.params.city)
-        
-        axios({
-            method:'GET',
-            url: `https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot/${props.match.params.city}`,
-            params: { $top: 30, $skip: skip, $format: 'JSON'}
-            }).then(res => {
-                setData(prevState => {
-                return [...prevState, ...res.data]
-            })
+      axios({
+        method:'GET',
+        url: `https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot/${props.match.params.city}`,
+        params: { $top: 30, $skip: skip, $format: 'JSON'}
+        }).then(res => {
+            setData(prevState => {
+            return [...prevState, ...res.data] 
+          })
+            setHasMore(res.data.length > 0)
+            setLoading(false)
+      })
+    },[skip]) 
+
+    useEffect(() => {
+      setSkip(0)
+      axios({
+        method:'GET',
+        url: `https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot/${props.match.params.city}`,
+        params: { $top: 30, $skip: skip, $format: 'JSON'}
+        }).then(res => {
+            setData([...res.data]) 
             setHasMore(res.data.length > 0)
             setLoading(false)
         })
-        if(data && data.City !== props.match.params.city) {
-            axios({
-                method:'GET',
-                url: `https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot/${props.match.params.city}`,
-                params: { $top: 30, $skip: 0, $format: 'JSON'}
-                }).then(res => {
-                    setData([...res.data])
-                    setHasMore(res.data.length > 0)
-                    setLoading(false)
-            })
-        }
-    },[skip, props.match.params.city]) 
-
+      },[props.match.params.city])
+      
     const observer = useRef()
     const lastElementRef = useCallback(node => {
         if(loading) return
