@@ -1,6 +1,6 @@
 
 ## Quick start :
- First you have to download this file and then you can execute this with following instructions :
+ First you have to download this file and then you can execute it as follow :
 ```
 Run "npm install"
 ```
