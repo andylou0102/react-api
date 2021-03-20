@@ -1,5 +1,5 @@
 
-## 本地端啟動 :
+## Quick start :
  First you have to download this file, then you can execute this with following instructions :
 ```
 Run "npm install"
@@ -8,7 +8,7 @@ Run "npm install"
 Run "npm start"
 ```
 
-## 或直接前往連結測試 :
+## Link :
 [React API(Hosting on firebase)](https://my-first-app-85353.web.app/)
 
 
